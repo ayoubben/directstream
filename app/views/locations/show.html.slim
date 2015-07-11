@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong Number:
+  = @location.number
+p
+  strong Street:
+  = @location.street
+p
+  strong City:
+  = @location.city
+p
+  strong Country:
+  = @location.country
+p
+  strong Zip code:
+  = @location.zip_code
+
+= link_to 'Edit', edit_location_path(@location)
+'|
+= link_to 'Back', locations_path

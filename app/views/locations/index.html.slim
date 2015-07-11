@@ -1,0 +1,36 @@
+h1 Listing locations
+
+table
+  thead
+    tr
+      th Number
+      th Street
+      th City
+      th Country
+      th Zip code
+      th Longtitude
+      th latitude
+      th
+      th
+      th
+
+  tbody
+    - @locations.each do |location|
+      tr
+        td = location.number
+        td = location.street
+        td = location.city
+        td = location.country
+        td = location.zip_code
+        td = location.longtitude_decorate
+        td = location.latitude_decorate
+        td = location.zip_code
+        td = link_to 'Show', location
+        td = link_to 'Edit', edit_location_path(location)
+        td = link_to 'Destroy', location, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Location', new_location_path
+br
+= link_to 'Récupérer les positions', convert_adress_locations_path

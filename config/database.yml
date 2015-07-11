@@ -1,0 +1,22 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: boaterfly
+  password: boaterfly
+
+development:
+  <<: *default
+  database: directstreams_development
+
+test:
+  <<: *default
+  database: directstreams_test
+
+
+production:
+  <<: *default
+  database: directstreams_production
+  username: directstreams
+  password: <%= ENV['DIRECTSTREAMS_DATABASE_PASSWORD'] %>
