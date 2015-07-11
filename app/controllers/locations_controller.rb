@@ -1,9 +1,10 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
 
   def index
-    @locations = Location.all
+    @locations = Location.order(sort_column + " " + sort_direction).search(params[:search_country], params[:search_city]).paginate(:page => params[:page], :per_page => 5)
   end
 
   def show
@@ -66,4 +67,11 @@ class LocationsController < ApplicationController
     def location_params
       params.require(:location).permit(:number, :street, :city, :zip_code, :country)
     end
+  def sort_column
+    Location.column_names.include?(params[:sort]) ? params[:sort] : "country"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 end

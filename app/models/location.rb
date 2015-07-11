@@ -33,4 +33,14 @@ class Location < ActiveRecord::Base
        "#{arg},"
     end
   end
+
+  def self.search(search_country, search_city)
+    if search_country && search_city
+      self.where("country like ? AND city like ?", "%#{search_country}%","%#{search_city}%")
+    elsif search_country || search_city
+      self.where("country like ? OR city like ?", "%#{search_country}%","%#{search_city}%")
+    else
+      self.all
+    end
+  end
 end

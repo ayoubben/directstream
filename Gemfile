@@ -14,10 +14,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'therubyracer'
 gem 'less-rails'
+gem 'bootstrap-sass'
 gem 'twitter-bootstrap-rails'
 gem 'formtastic-bootstrap'
 gem 'slim-rails'
 gem 'geocoder'
+gem 'will_paginate'
 
 
 
