@@ -1,7 +1,7 @@
 = semantic_form_for @location do |f|
   = f.inputs :name => "Locations form" do
       
-      = f.input :adress, as: :string
+      = f.input :adress, as: :string,  :input_html => {  onClick: "initialize();" }
       = f.input :number,               :input_html => { :id => 'street_number' }
       = f.input :street,               :input_html => { :id => 'route' }
       = f.input :city,                 :input_html => { :id => 'locality' }
@@ -22,6 +22,7 @@ javascript:
     country: 'long_name',
     postal_code: 'short_name'
   };
+
   function initialize() {
     // Create the autocomplete object, restricting the search
     // to geographical location types.

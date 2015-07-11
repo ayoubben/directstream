@@ -2,4 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
+$( document.getElementById('location_adress') ).onclick(function() {
+    alert('ok');
+});
 
