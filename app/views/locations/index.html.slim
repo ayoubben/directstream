@@ -1,45 +1,52 @@
 h1 Listing locations
 
-p.col-md-12
-  = form_tag locations_path, :method => 'get' do
-    = text_field_tag :search_country, params[:search_country]
-    = text_field_tag :search_city, params[:search_city]
-    = submit_tag "Search", :name => nil
+.container
+  .row
+    .col-md-6
+      .col-md-12
+        = form_tag locations_path, :method => 'get' do
+          = text_field_tag :search_country, params[:search_country], class: 'col-md-4'
+          .col-md-1
+          = text_field_tag :search_city, params[:search_city], class: 'col-md-4'
+          .col-md-1
+          = submit_tag "Search", :name => nil, class: 'col-md-2'
+    .col-md-4    
+    .col-md-2
+      = link_to 'New Location', new_location_path, class: "btn .btn-lg btn-primary"
+br
 
 .container
   .row
-    .col-sm-12
-      = link_to 'New Location', new_location_path, class: "btn btn-default"
+    .col-md-12
+      table.table.table-bordered.table-striped
+        thead
+          tr
+            th Number
+            th Street
+            th.sortablelink
+              = sortable "city", "city"
+            th.sortablelink 
+              = sortable "country", "country"
+            th Zip code
+            th Longtitude
+            th latitude
+            th
+            th
+            th
 
-table.table.table-bordered.table-striped
-  thead
-    tr
-      th Number
-      th Street
-      th.sortablelink
-        = sortable "city", "city"
-      th.sortablelink 
-        = sortable "country", "country"
-      th Zip code
-      th Longtitude
-      th latitude
-      th
-      th
-      th
-
-  tbody
-    - @locations.each do |location|
-      tr
-        td = location.number
-        td = location.street
-        td = location.city
-        td = location.country
-        td = location.zip_code
-        td = location.longtitude_decorate
-        td = location.latitude_decorate
-        td = link_to 'Show', location
-        td = link_to 'Edit', edit_location_path(location)
-        td = link_to 'Destroy', location, data: {:confirm => 'Are you sure?'}, :method => :delete
+        tbody
+          - @locations.each do |location|
+            tr
+              td = location.number
+              td = location.street
+              td = location.city
+              td = location.country
+              td = location.zip_code
+              td = location.longtitude_decorate
+              td = location.latitude_decorate
+              td = link_to 'Show', location
+              td = link_to 'Edit', edit_location_path(location)
+              td = link_to 'Destroy', location, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 = will_paginate @locations
 br
