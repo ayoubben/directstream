@@ -1,5 +1,15 @@
-h1 New location
-
-== render 'form'
-
-= link_to 'Back', locations_path
+.container
+  .row
+    .col-md-12
+        h3.text-danger
+         | - New location
+.container
+  .row
+    .col-md-12         
+      == render 'form'
+.container
+  .row
+    .col-md-12 
+      .col-md-1
+      .col-md-1
+        = link_to 'Back', locations_path, class: "btn .btn-lg btn-default"

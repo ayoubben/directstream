@@ -1,8 +1,18 @@
-h1 Editing location
-
-== render 'form'
-
-= link_to 'Show', @location
-'|
-= link_to 'Back', locations_path
+.container
+  .row
+    .col-md-12
+        h3.text-danger
+         | - Editing location
+.container
+  .row
+    .col-md-12         
+      == render 'form'
+.container
+  .row
+    .col-md-12 
+      .col-md-1
+      .col-md-1
+        = link_to 'Show', @location, class: "btn .btn-lg btn-default"
+      .col-md-1
+        = link_to 'Back', locations_path, class: "btn .btn-lg btn-default"
 

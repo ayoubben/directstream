@@ -1,21 +1,42 @@
-p#notice = notice
+.container
+  .row
+    .col-md-12
+        h3.text-danger
+         | - location Show
+.container
+  .row
+    .col-md-12 
+      .col-md-2
+        strong Number:
+      .col-md-2
+        = @location.number
+    .col-md-12 
+      .col-md-2
+        strong Street:
+      .col-md-2
+        = @location.street
+    .col-md-12 
+      .col-md-2
+        strong City:
+      .col-md-2
+        = @location.city
+    .col-md-12 
+      .col-md-2
+        strong Country:
+      .col-md-2
+        = @location.country
+    .col-md-12 
+      .col-md-2
+        strong Zip code:
+      .col-md-2
+        = @location.zip_code
 
-p
-  strong Number:
-  = @location.number
-p
-  strong Street:
-  = @location.street
-p
-  strong City:
-  = @location.city
-p
-  strong Country:
-  = @location.country
-p
-  strong Zip code:
-  = @location.zip_code
+.col-md-12.small-space
 
-= link_to 'Edit', edit_location_path(@location)
-'|
-= link_to 'Back', locations_path
+.container
+  .row
+    .col-md-12 
+      .col-md-1
+        = link_to 'Edit', edit_location_path(@location), class: "btn .btn-lg btn-default"
+      .col-md-1
+        = link_to 'Back', locations_path, class: "btn .btn-lg btn-default"

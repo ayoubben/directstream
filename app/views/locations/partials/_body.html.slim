@@ -1,0 +1,41 @@
+.container
+  .row
+    .col-md-12
+        h3.text-danger
+         | - Listing locations
+    .col-md-12
+      table.table.table-bordered.table-striped
+        thead
+          tr
+            th Number
+            th Street
+            th.sortablelink
+              = sortable "city", "city"
+            th.sortablelink 
+              = sortable "country", "country"
+            th Zip code
+            th Longtitude
+            th latitude
+            th
+            th
+            th
+
+        tbody
+          - @locations.each do |location|
+            tr
+              td = location.number
+              td = location.street
+              td = location.city
+              td = location.country
+              td = location.zip_code
+              td = location.longtitude_decorate
+              td = location.latitude_decorate
+              td = link_to 'Show', location
+              td = link_to 'Edit', edit_location_path(location)
+              td = link_to 'Destroy', location, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+= will_paginate @locations
+br
+
+br
+= link_to 'Récupérer les positions', convert_adress_locations_path , class: "btn btn-default"
