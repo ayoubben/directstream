@@ -14,18 +14,25 @@
 javascript:
 
   var locations =  #{raw  @locations.converted.to_json}
-
+  var called = false;
     function initializemap() {
-      var myOptions = {
-        center: new google.maps.LatLng(48.8874366, 2.3467959),
-        zoom: 6,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-      var map = new google.maps.Map(document.getElementById("map"),
-          myOptions);
-      setMarkers(map,locations)
 
-    }
+      
+      if(called == false)
+      {
+        var myOptions = {
+          center: new google.maps.LatLng(48.8874366, 2.3467959),
+          zoom: 6,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map"),
+            myOptions);
+        setMarkers(map,locations)
+
+        called = true
+      }
+  }
+  
     function setMarkers(map,locations){
       var marker, i
       for (i = 0; i < locations.length; i++)
