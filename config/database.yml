@@ -16,7 +16,9 @@ test:
 
 
 production:
-  <<: *default
-  database: directstreams_production
-  username: directstreams
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: boaterfly
   password: <%= ENV['DIRECTSTREAMS_DATABASE_PASSWORD'] %>
+  database: directstreams_test
