@@ -19,6 +19,6 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: boaterfly
+  username: ylnrcksricjxls
   password: <%= ENV['DIRECTSTREAMS_DATABASE_PASSWORD'] %>
-  database: directstreams_test
+  database: damddf7qf7sj5q
