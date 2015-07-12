@@ -92,6 +92,16 @@ hr {
      -moz-box-sizing: content-box;
           box-sizing: content-box;
 }
+.sortablelink{
+  background: #ecf0f1;
+}
+
+.small-space{
+  height: 20px;
+}
+.radius{
+  border-radius: 5px;
+}
 pre {
   overflow: auto;
 }
