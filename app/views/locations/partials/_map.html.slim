@@ -1,0 +1,44 @@
+.container
+  .row
+    .col-md-12
+      h3.text-danger
+        | - Locations on Map
+
+
+#map style=("width: 100%; height: 400px;")
+
+
+
+javascript:
+
+  var locations =  #{raw  @locations.to_json}
+
+    function initializemap() {
+      var myOptions = {
+        center: new google.maps.LatLng(48.8874366, 2.3467959),
+        zoom: 8,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      var map = new google.maps.Map(document.getElementById("map"),
+          myOptions);
+      setMarkers(map,locations)
+
+    }
+    function setMarkers(map,locations){
+      var marker, i
+      for (i = 0; i < locations.length; i++)
+        {
+          var lat = locations[i].latitude
+          var longt = locations[i].longtitude
+          var country = locations[i].country
+          var city = locations[i].city
+          latlngset = new google.maps.LatLng(lat, longt);
+
+          var marker = new google.maps.Marker({
+                        position: latlngset,
+                        map: map,
+                        title:"Locatiosn map!",
+                    })
+          map.setCenter(marker.getPosition())
+        }
+    }
