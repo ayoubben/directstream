@@ -4,6 +4,7 @@ class Location < ActiveRecord::Base
   validates :country, presence: true
 
   scope :unconverted, -> { where(latitude: nil, longtitude: nil) }
+  scope :converted, -> { where("latitude IS NOT NULL AND longtitude IS NOT NULL") }
 
   def adress
   end

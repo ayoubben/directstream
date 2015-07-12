@@ -13,7 +13,7 @@
 
 javascript:
 
-  var locations =  #{raw  @locations.to_json}
+  var locations =  #{raw  @locations.converted.to_json}
 
     function initializemap() {
       var myOptions = {
