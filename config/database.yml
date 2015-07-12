@@ -17,6 +17,7 @@ test:
 
 production:
   adapter: postgresql
+  host: ec2-54-217-202-108.eu-west-1.compute.amazonaws.com
   encoding: unicode
   pool: 5
   username: ylnrcksricjxls
