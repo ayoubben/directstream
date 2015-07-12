@@ -254,12 +254,7 @@ th {
     border: 1px solid #ddd !important;
   }
 }
-@font-face {
-  font-family: 'Glyphicons Halflings';
 
-  src: font-url('new_design/glyphicons-halflings-regular.eot');
-  src: font-url('new_design/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), font-url('new_design/glyphicons-halflings-regular.woff') format('woff'), font-url('new_design/glyphicons-halflings-regular.ttf') format('truetype'), font-url('new_design/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
-}
 .glyphicon {
   position: relative;
   top: 1px;
